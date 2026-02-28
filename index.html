@@ -19,7 +19,12 @@
     <meta name="twitter:description" content="Client tracking, session notes, scheduling, package tracking, and invoicing for $9.99/month. Your data stays on your device.">
     <link rel="canonical" href="https://steadytrainer.app">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <noscript><style>.reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }</style></noscript>
+    <noscript>
+        <style>
+            .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+            .feature-list li { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -28,14 +33,95 @@
         "operatingSystem": "iOS",
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "Client Management",
-        "description": "SteadyTrainer is a simple, affordable client management app for solo personal trainers and fitness coaches. Track clients, log sessions, manage packages, schedule appointments, and send invoices for $9.99/month.",
+        "description": "SteadyTrainer is a simple, affordable client management app for solo personal trainers and fitness coaches. Track clients, log sessions, manage packages, schedule appointments, and send invoices — all for $9.99/month. All data is stored locally on-device for maximum privacy. Designed as a lightweight alternative to Trainerize, My PT Hub, and TrueCoach for independent in-person trainers who don't need $99/month software.",
+        "featureList": "Client management, Session scheduling, Session notes and progress tracking, Simple invoicing, Package tracking, Smart reminders, Revenue dashboard, PIN lock security, Data backup and restore, CSV export",
+        "screenshot": "https://steadytrainer.app/dashboard.png",
         "offers": [
-            {"@type": "Offer", "price": "0", "priceCurrency": "USD", "name": "Free", "description": "Up to 3 active clients with all features included"},
-            {"@type": "Offer", "price": "9.99", "priceCurrency": "USD", "billingIncrement": "P1M", "name": "Pro Monthly"},
-            {"@type": "Offer", "price": "79.99", "priceCurrency": "USD", "billingIncrement": "P1Y", "name": "Pro Annual"}
+            {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "name": "Free",
+                "description": "Up to 3 active clients with all features included"
+            },
+            {
+                "@type": "Offer",
+                "price": "9.99",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1M",
+                "name": "Pro Monthly",
+                "description": "Unlimited clients, CSV export, full data backup and restore"
+            },
+            {
+                "@type": "Offer",
+                "price": "79.99",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1Y",
+                "name": "Pro Annual"
+            }
         ],
-        "publisher": {"@type": "Organization", "name": "BrookFord LLC", "url": "https://steadytrainer.app"},
+        "publisher": {
+            "@type": "Organization",
+            "name": "BrookFord LLC",
+            "url": "https://steadytrainer.app"
+        },
         "url": "https://steadytrainer.app"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is SteadyTrainer a workout programming app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. SteadyTrainer is a client management tool, not a workout builder. If you program workouts in a notebook, spreadsheet, or your head, and you need a simple way to manage clients, sessions, packages, and payments — that's what SteadyTrainer does."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What about online coaching?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SteadyTrainer is built for trainers who see clients in person. If you run an online coaching business with hundreds of clients and need video delivery, SteadyTrainer isn't for you. If you're a solo trainer juggling 10–30 in-person clients, it's exactly for you."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is my data stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All your data lives on your iPhone. We don't store it on servers, we don't have access to it, and we never sell it. Your client information is yours."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I try it free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SteadyTrainer is free for up to 3 clients with all features included. No credit card, no account, no trial that expires."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I have more than 30 clients?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SteadyTrainer is designed for solo trainers with up to about 30 active clients. If you're managing a large roster or a team of trainers, a platform like Trainerize or TrueCoach may be a better fit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "$9.99/month — what's the catch?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No catch. We keep costs low by keeping the product focused. No bloated feature set to maintain, no server infrastructure to run, no enterprise sales team to pay for. The savings get passed to you."
+                }
+            }
+        ]
     }
     </script>
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -45,208 +131,1171 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --sage: #60A5FA; --sage-light: #1E3A5F; --sage-lighter: #1E293B; --sage-dark: #3B82F6;
-            --warm-white: #0F172A; --cream: #1E293B; --text-primary: #F1F5F9;
-            --text-secondary: #94A3B8; --text-light: #94A3B8; --white: #1E293B; --border: #334155;
+            --sage: #60A5FA;
+            --sage-light: #1E3A5F;
+            --sage-lighter: #1E293B;
+            --sage-dark: #3B82F6;
+            --warm-white: #0F172A;
+            --cream: #1E293B;
+            --text-primary: #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-light: #94A3B8;
+            --white: #1E293B;
+            --border: #334155;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-        body { font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text-primary); background: var(--warm-white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-        nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 1rem 2rem; transition: all 0.3s ease; background: transparent; }
-        nav.scrolled { background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: #F1F5F9; text-decoration: none; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 0.5rem; }
-        .logo-mark { width: 28px; height: 28px; background: linear-gradient(135deg, #3B82F6, #1E3A5F); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .logo-mark svg { width: 18px; height: 18px; }
-        .nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.4rem; background: #3B82F6; color: #F1F5F9; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; border: none; cursor: pointer; }
-        .nav-cta:hover { background: #60A5FA; transform: translateY(-1px); }
-        .nav-links { display: flex; align-items: center; gap: 1.5rem; }
-        .nav-link { font-size: 0.9rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
-        .nav-link:hover { color: #60A5FA; }
-        .phone-mockup { position: relative; width: 260px; flex-shrink: 0; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .phone-mockup-lg { width: 300px; }
-        .phone-mockup:hover { transform: translateY(-6px); }
-        .phone-frame { background: #1a1a1a; border-radius: 36px; padding: 12px; box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.2); }
-        .phone-mockup-lg .phone-frame { border-radius: 40px; padding: 14px; }
-        .phone-screen { background: #0F172A; border-radius: 24px; overflow: hidden; }
-        .phone-mockup-lg .phone-screen { border-radius: 28px; }
-        .mock-header { background: #3B82F6; color: white; padding: 16px 16px 14px; }
-        .mock-header-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; margin-bottom: 2px; }
-        .mock-header-title { font-family: 'DM Serif Display', serif; font-size: 16px; letter-spacing: -0.01em; }
-        .mock-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; }
-        .mock-stat { background: #1E293B; border-radius: 10px; padding: 10px; border: 1px solid #334155; }
-        .mock-stat-value { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--text-primary); line-height: 1.1; }
-        .mock-stat-value.green { color: #60A5FA; } .mock-stat-value.amber { color: #FBBF24; }
-        .mock-stat-label { font-size: 7.5px; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
-        .mock-section-title { font-size: 9px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-light); padding: 8px 12px 4px; }
-        .mock-appointment { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-bottom: 1px solid #334155; }
-        .mock-appointment:last-child { border-bottom: none; }
-        .mock-appt-dot { width: 6px; height: 6px; border-radius: 50%; background: #60A5FA; flex-shrink: 0; }
-        .mock-appt-info { flex: 1; min-width: 0; }
-        .mock-appt-name { font-size: 10px; font-weight: 600; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .mock-appt-detail { font-size: 8px; color: var(--text-light); }
-        .mock-appt-time { font-size: 9px; font-weight: 500; color: #60A5FA; flex-shrink: 0; }
-        .hero { padding: 9rem 2rem 5rem; max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 4rem; }
-        .hero-text { flex: 1; animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) both; }
-        .hero .phone-mockup { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) 0.2s both; }
-        .hero-badge { display: inline-block; padding: 0.4rem 1rem; background: rgba(59,130,246,0.15); color: #60A5FA; border-radius: 100px; font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem; }
-        .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem,4.5vw,3.4rem); line-height: 1.12; color: var(--text-primary); margin-bottom: 1.25rem; letter-spacing: -0.02em; }
-        .hero h1 em { color: #60A5FA; font-style: normal; }
-        .hero-sub { font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); max-width: 480px; margin-bottom: 2rem; }
-        .hero-cta-group { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-        .cta-primary { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.9rem 1.8rem; background: #3B82F6; color: #F1F5F9; border-radius: 12px; text-decoration: none; font-size: 1rem; font-weight: 500; transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: none; cursor: pointer; position: relative; overflow: hidden; }
-        .cta-primary:hover { background: #60A5FA; transform: translateY(-2px); box-shadow: 0 4px 16px rgba(59,130,246,0.4); }
-        .cta-note { font-size: 0.85rem; color: var(--text-light); }
-        .savings-banner { padding: 2.5rem 2rem; background: var(--sage-lighter); }
-        .savings-banner-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-        .savings-banner p { font-size: 1.1rem; line-height: 1.7; color: var(--text-primary); }
-        .savings-banner strong { color: #60A5FA; }
-        .savings-banner .savings-detail { font-size: 0.85rem; color: var(--text-light); margin-top: 0.5rem; }
-        .problem { padding: 4.5rem 2rem; background: var(--cream); }
-        .problem-inner { max-width: 800px; margin: 0 auto; text-align: center; }
-        .problem h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text-primary); margin-bottom: 1rem; }
-        .problem p { font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2.5rem; }
-        .compare-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        .compare-card { padding: 1.5rem 2rem; border-radius: 16px; text-align: center; min-width: 160px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .compare-card.other { background: var(--white); border: 1px solid var(--border); }
-        .compare-card.ours { background: #3B82F6; color: #F1F5F9; }
-        .compare-card .comp-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.3rem; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--warm-white);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        nav.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: #F1F5F9;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo-mark {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #3B82F6, #1E3A5F);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .logo-mark svg {
+            width: 18px;
+            height: 18px;
+        }
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.4rem;
+            background: #3B82F6;
+            color: #F1F5F9;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-cta:hover {
+            background: #60A5FA;
+            transform: translateY(-1px);
+        }
+        .nav-cta svg { width: 14px; height: 14px; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .nav-link {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #60A5FA;
+        }
+
+        /* Phone mockup (HTML/CSS) */
+        .phone-mockup {
+            position: relative;
+            width: 260px;
+            flex-shrink: 0;
+        }
+        .phone-mockup-lg {
+            width: 300px;
+        }
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow:
+                0 24px 60px rgba(0, 0, 0, 0.4),
+                0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        .phone-mockup-lg .phone-frame {
+            border-radius: 40px;
+            padding: 14px;
+        }
+        .phone-screen {
+            background: #0F172A;
+            border-radius: 24px;
+            overflow: hidden;
+            font-family: 'DM Sans', -apple-system, sans-serif;
+        }
+        .phone-mockup-lg .phone-screen {
+            border-radius: 28px;
+        }
+
+        /* Dashboard mock inside phone */
+        .mock-header {
+            background: #3B82F6;
+            color: white;
+            padding: 16px 16px 14px;
+        }
+        .mock-header-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.7;
+            margin-bottom: 2px;
+        }
+        .mock-header-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+        .mock-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 12px;
+        }
+        .mock-stat {
+            background: #1E293B;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #334155;
+        }
+        .mock-stat-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: 15px;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+        .mock-stat-value.green { color: #60A5FA; }
+        .mock-stat-value.amber { color: #FBBF24; }
+        .mock-stat-label {
+            font-size: 7.5px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 2px;
+        }
+        .mock-section-title {
+            font-size: 9px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-light);
+            padding: 8px 12px 4px;
+        }
+        .mock-appointment {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-bottom: 1px solid #334155;
+        }
+        .mock-appointment:last-child {
+            border-bottom: none;
+        }
+        .mock-appt-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #60A5FA;
+            flex-shrink: 0;
+        }
+        .mock-appt-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .mock-appt-name {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .mock-appt-detail {
+            font-size: 8px;
+            color: var(--text-light);
+        }
+        .mock-appt-time {
+            font-size: 9px;
+            font-weight: 500;
+            color: #60A5FA;
+            flex-shrink: 0;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 9rem 2rem 5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        .hero-text {
+            flex: 1;
+        }
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60A5FA;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            line-height: 1.12;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 em {
+            color: #60A5FA;
+            font-style: normal;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 480px;
+            margin-bottom: 2rem;
+        }
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.8rem;
+            background: #3B82F6;
+            color: #F1F5F9;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        .cta-primary:hover {
+            background: #60A5FA;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+        }
+        .cta-primary svg { width: 20px; height: 20px; }
+        .cta-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Savings math banner */
+        .savings-banner {
+            padding: 2.5rem 2rem;
+            background: var(--sage-lighter);
+        }
+        .savings-banner-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .savings-banner p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+        .savings-banner strong {
+            color: #60A5FA;
+        }
+        .savings-banner .savings-detail {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Problem section */
+        .problem {
+            padding: 4.5rem 2rem;
+            background: var(--cream);
+        }
+        .problem-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .problem h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .problem p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+        }
+        .compare-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .compare-card {
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            min-width: 160px;
+        }
+        .compare-card.other {
+            background: var(--white);
+            border: 1px solid var(--border);
+        }
+        .compare-card.ours {
+            background: #3B82F6;
+            color: #F1F5F9;
+        }
+        .compare-card .comp-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
         .compare-card.other .comp-name { color: var(--text-light); }
-        .compare-card .comp-price { font-family: 'DM Serif Display', serif; font-size: 1.5rem; }
+        .compare-card .comp-price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+        }
         .compare-card.other .comp-price { color: #F1F5F9; }
-        .comp-annual { font-size: 0.8rem; margin-top: 0.2rem; }
+        .compare-card.ours .comp-price { color: var(--white); }
+        .comp-annual {
+            font-size: 0.8rem;
+            margin-top: 0.2rem;
+        }
         .compare-card.other .comp-annual { color: var(--text-light); }
         .compare-card.ours .comp-annual { color: rgba(255,255,255,0.8); }
-        .savings-math { margin-top: 1.5rem; font-size: 1.1rem; color: #60A5FA; }
-        .savings-math strong { color: #60A5FA; }
-        .features { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-        .features-header { text-align: center; margin-bottom: 4rem; }
-        .features-header h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text-primary); margin-bottom: 0.5rem; }
-        .features-header p { color: var(--text-secondary); font-size: 1.05rem; }
-        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .feature-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-        .feature-icon { width: 44px; height: 44px; background: rgba(59,130,246,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-        .feature-icon svg { width: 22px; height: 22px; color: #60A5FA; }
-        .feature-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 0.5rem; }
-        .feature-card p { font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary); }
-        .privacy-section { padding: 4.5rem 2rem; background: #1E3A5F; color: var(--white); }
-        .privacy-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-        .privacy-icon { width: 56px; height: 56px; background: rgba(255,255,255,0.15); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+        .savings-math {
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            color: #60A5FA;
+        }
+        .savings-math strong {
+            color: #60A5FA;
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .features-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .features-header h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .features-header p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(59, 130, 246, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            color: #60A5FA;
+        }
+        .feature-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+
+        /* Privacy */
+        .privacy-section {
+            padding: 4.5rem 2rem;
+            background: #1E3A5F;
+            color: #F1F5F9;
+        }
+        .privacy-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .privacy-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
         .privacy-icon svg { width: 28px; height: 28px; color: white; }
-        .privacy-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); margin-bottom: 1rem; }
-        .privacy-section p { font-size: 1.05rem; line-height: 1.7; opacity: 0.9; }
-        .pricing { padding: 5rem 2rem; }
-        .pricing-inner { max-width: 700px; margin: 0 auto; text-align: center; }
-        .pricing h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text-primary); margin-bottom: 0.3rem; }
-        .pricing-sub { color: var(--text-secondary); margin-bottom: 2.5rem; font-size: 1.05rem; }
-        .pricing-cards { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-        .price-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; min-width: 260px; flex: 1; max-width: 320px; text-align: left; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
-        .price-card.featured { border-color: #3B82F6; border-width: 2px; }
-        .price-badge { position: absolute; top: -10px; right: 20px; background: #3B82F6; color: #F1F5F9; font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.75rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
-        .price-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
-        .price-amount { font-family: 'DM Serif Display', serif; font-size: 2.5rem; color: var(--text-primary); }
-        .price-period { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.5rem; display: block; }
-        .price-features { list-style: none; }
-        .price-features li { padding: 0.35rem 0; font-size: 0.9rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem; }
+        .privacy-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 1rem;
+            color: #F1F5F9;
+        }
+        .privacy-section p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #E2E8F0;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 5rem 2rem;
+        }
+        .pricing-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .pricing h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .pricing-sub {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+        }
+        .pricing-cards {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .price-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            min-width: 260px;
+            flex: 1;
+            max-width: 320px;
+            text-align: left;
+            position: relative;
+        }
+        .price-card.featured {
+            border-color: #3B82F6;
+            border-width: 2px;
+        }
+        .price-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #3B82F6;
+            color: #F1F5F9;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .price-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .price-amount {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+        }
+        .price-period {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        .price-features {
+            list-style: none;
+        }
+        .price-features li {
+            padding: 0.35rem 0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
         .price-features li svg { width: 16px; height: 16px; color: #60A5FA; flex-shrink: 0; }
-        .price-cta { display: block; text-align: center; margin-top: 1.5rem; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: all 0.2s ease; background: #334155; color: #F1F5F9; border: none; cursor: pointer; }
-        .price-cta:hover { background: #475569; transform: translateY(-1px); }
-        .price-cta-featured { background: #3B82F6; color: #F1F5F9; }
-        .price-cta-featured:hover { background: #60A5FA; }
-        .comparison { padding: 0 2rem 5rem; }
-        .comparison-inner { max-width: 900px; margin: 0 auto; }
-        .comparison h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text-primary); text-align: center; margin-bottom: 2rem; }
-        .comparison-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-        .comparison-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 600px; }
-        .comparison-table th, .comparison-table td { padding: 0.75rem 1rem; text-align: center; border-bottom: 1px solid var(--border); }
-        .comparison-table th:first-child, .comparison-table td:first-child { text-align: left; font-weight: 500; }
-        .comparison-table thead th { font-weight: 600; color: #F1F5F9; background: #1E293B; border-bottom: 2px solid var(--border); font-size: 0.85rem; }
-        .comparison-table thead th.highlight { background: #3B82F6; color: #F1F5F9; border-radius: 8px 8px 0 0; }
-        .comparison-table tbody td { color: var(--text-secondary); }
-        .comparison-table tbody td.highlight { background: rgba(59,130,246,0.1); font-weight: 600; color: #60A5FA; }
-        .comparison-table tbody tr:last-child td { border-bottom: none; }
-        .check-icon { color: #60A5FA; } .x-icon { color: #c0c0c0; }
-        .by-design { font-size: 0.75rem; color: var(--text-light); display: block; }
-        .not-for-you { padding: 2.5rem 2rem; max-width: 700px; margin: 0 auto 2rem; text-align: center; border: 1px solid var(--border); border-radius: 16px; background: var(--warm-white); }
-        .not-for-you h3 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 0.75rem; }
-        .not-for-you p { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); }
-        .faq { padding: 4.5rem 2rem; background: var(--cream); }
-        .faq-inner { max-width: 700px; margin: 0 auto; }
-        .faq h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text-primary); text-align: center; margin-bottom: 2.5rem; }
-        .faq-item { margin-bottom: 1.5rem; }
-        .faq-item h3 { font-size: 1.05rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem; }
-        .faq-item p { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); }
-        .blog { padding: 5rem 2rem; }
-        .blog-inner { max-width: 1100px; margin: 0 auto; }
-        .blog h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--text-primary); text-align: center; margin-bottom: 2.5rem; }
-        .blog-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-        .blog-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
-        .blog-card-date { font-size: 0.78rem; color: var(--text-light); margin-bottom: 0.5rem; }
-        .blog-card h3 { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--text-primary); line-height: 1.35; }
-        .final-cta { padding: 5rem 2rem; background: #1E3A5F; text-align: center; }
-        .final-cta h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.6rem,3vw,2.2rem); color: var(--white); margin-bottom: 0.75rem; }
-        .final-cta p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.05rem; }
-        .final-cta .cta-primary { background: #F1F5F9; color: #0F172A; }
-        .final-cta .cta-primary:hover { background: #E2E8F0; color: #0F172A; }
-        footer { padding: 2.5rem 2rem; border-top: 1px solid var(--border); }
-        .footer-inner { max-width: 1100px; margin: 0 auto; }
-        .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1.5rem; }
-        .footer-brand { display: flex; align-items: center; gap: 0.5rem; font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: #F1F5F9; text-decoration: none; margin-bottom: 0.5rem; }
-        .footer-about { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; max-width: 400px; margin-bottom: 0.75rem; }
-        .footer-links-col { display: flex; flex-direction: column; gap: 0.5rem; }
-        .footer-links-col a { font-size: 0.85rem; color: var(--text-light); text-decoration: none; transition: color 0.2s ease; }
+        .price-cta {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            background: #334155;
+            color: #F1F5F9;
+            border: none;
+            cursor: pointer;
+        }
+        .price-cta:hover {
+            background: #475569;
+            transform: translateY(-1px);
+        }
+        .price-cta-featured {
+            background: #3B82F6;
+            color: #F1F5F9;
+        }
+        .price-cta-featured:hover {
+            background: #60A5FA;
+        }
+
+        /* Comparison table */
+        .comparison {
+            padding: 0 2rem 5rem;
+        }
+        .comparison-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .comparison h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .comparison-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 600px;
+        }
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+        .comparison-table thead th {
+            font-weight: 600;
+            color: #F1F5F9;
+            background: #1E293B;
+            border-bottom: 2px solid var(--border);
+            font-size: 0.85rem;
+        }
+        .comparison-table thead th.highlight {
+            background: #3B82F6;
+            color: #F1F5F9;
+            border-radius: 8px 8px 0 0;
+        }
+        .comparison-table tbody td {
+            color: var(--text-secondary);
+        }
+        .comparison-table tbody td.highlight {
+            background: rgba(59, 130, 246, 0.1);
+            font-weight: 600;
+            color: #60A5FA;
+        }
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .check-icon { color: #60A5FA; }
+        .x-icon { color: #c0c0c0; }
+        .by-design {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        /* Not for you */
+        .not-for-you {
+            padding: 2.5rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            background: var(--warm-white);
+        }
+        .not-for-you h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .not-for-you p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4.5rem 2rem;
+            background: var(--cream);
+        }
+        .faq-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .faq h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        .faq-item h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.4rem;
+        }
+        .faq-item p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* Blog */
+        .blog {
+            padding: 5rem 2rem;
+        }
+        .blog-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .blog h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .blog-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+        .blog-card-date {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        .blog-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 5rem 2rem;
+            background: #1E3A5F;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+        .final-cta p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        .final-cta .cta-primary {
+            background: #F1F5F9;
+            color: #0F172A;
+        }
+        .final-cta .cta-primary:hover {
+            background: #E2E8F0;
+            color: #0F172A;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: #F1F5F9;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-about {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            max-width: 400px;
+            margin-bottom: 0.75rem;
+        }
+        .footer-links-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .footer-links-col a {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
         .footer-links-col a:hover { color: #60A5FA; }
-        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 1.25rem; border-top: 1px solid var(--border); flex-wrap: wrap; gap: 0.75rem; }
-        .footer-copy { font-size: 0.8rem; color: var(--text-light); display: flex; align-items: center; }
-        .footer-family { font-size: 0.8rem; color: var(--text-light); }
-        .footer-family a { color: #60A5FA; text-decoration: none; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+        }
+        .footer-family {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .footer-family a {
+            color: #60A5FA;
+            text-decoration: none;
+        }
         .footer-family a:hover { text-decoration: underline; }
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-scale { opacity: 0; transform: scale(0.92); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }
-        .reveal-scale.visible { opacity: 1; transform: scale(1); }
-        .stagger-1 { transition-delay: 0.05s; } .stagger-2 { transition-delay: 0.12s; } .stagger-3 { transition-delay: 0.19s; } .stagger-4 { transition-delay: 0.26s; }
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .skip-link { position: absolute; top: -40px; left: 0; padding: 8px 16px; background: #3B82F6; color: #fff; z-index: 9999; font-size: 14px; text-decoration: none; border-radius: 0 0 4px 0; transition: top 0.2s; }
-        .skip-link:focus { top: 0; }
-        *:focus-visible { outline: 2px solid #60A5FA; outline-offset: 2px; }
-        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .reveal, .reveal-scale { opacity: 1; transform: none; } }
-        @media (max-width: 1024px) { .blog-grid { grid-template-columns: repeat(2,1fr); } }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding: 5rem 1.25rem 2rem; gap: 1.5rem; min-height: 100dvh; }
-            .hero-badge { display: none; } .hero h1 { font-size: 1.8rem; } .hero-cta-group { align-items: center; }
-            .phone-mockup { width: 200px; } .phone-mockup-lg { width: 220px; } .features-grid { grid-template-columns: 1fr; }
-            .pricing-cards { flex-direction: column; align-items: center; } .price-card { max-width: 100%; } .blog-grid { grid-template-columns: 1fr; }
-            .nav-link { display: none; } .nav-cta { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; } .nav-cta.show { opacity: 1; pointer-events: auto; } nav { padding: 0.75rem 1rem; }
-            .footer-top { flex-direction: column; align-items: center; text-align: center; } .footer-links-col { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem; } .footer-bottom { justify-content: center; flex-direction: column; align-items: center; }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 5rem 1.25rem 2rem;
+                gap: 1.5rem;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+            .hero-badge { display: none; }
+            .hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.15;
+                margin-bottom: 0.75rem;
+            }
+            .hero-sub {
+                font-size: 0.92rem;
+                line-height: 1.55;
+                margin-bottom: 1.25rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta-group { align-items: center; gap: 0.4rem; }
+            .cta-primary { padding: 0.75rem 1.5rem; font-size: 0.92rem; }
+            .cta-note { font-size: 12px; }
+            .phone-mockup { width: 200px; }
+            .phone-mockup-lg { width: 220px; }
+            .savings-banner { padding: 1.5rem 1.25rem; }
+            .savings-banner p { font-size: 0.95rem; }
+            .problem { padding: 2.5rem 1.25rem; }
+            .problem h2 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+            .problem p { font-size: 0.92rem; margin-bottom: 1.75rem; }
+            .compare-row { gap: 0.5rem; }
+            .compare-card { min-width: 0; flex: 1; padding: 0.85rem 0.75rem; }
+            .compare-card .comp-price { font-size: 1.15rem; }
+            .compare-card .comp-name { font-size: 0.78rem; }
+            .comp-annual { font-size: 0.72rem; }
+            .savings-math { font-size: 0.95rem; margin-top: 1rem; }
+            .features { padding: 3rem 1.25rem; }
+            .features-header { margin-bottom: 2rem; }
+            .features-header h2 { font-size: 1.35rem; }
+            .features-header p { font-size: 0.92rem; }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .feature-card { padding: 1.5rem; }
+            .feature-card h3 { font-size: 1.1rem; }
+            .feature-card p { font-size: 0.88rem; }
+            .privacy-section { padding: 2.5rem 1.25rem; }
+            .privacy-section h2 { font-size: 1.35rem; }
+            .privacy-section p { font-size: 0.92rem; }
+            .pricing { padding: 3rem 1.25rem; }
+            .pricing h2 { font-size: 1.35rem; }
+            .pricing-sub { font-size: 0.92rem; margin-bottom: 1.75rem; }
+            .pricing-cards { flex-direction: column; align-items: center; }
+            .price-card { max-width: 100%; padding: 1.5rem; }
+            .price-amount { font-size: 2rem; }
+            .comparison { padding: 0 1.25rem 3rem; }
+            .comparison h2 { font-size: 1.35rem; }
+            .not-for-you { padding: 1.5rem 1.25rem; margin-left: 0.75rem; margin-right: 0.75rem; margin-top: 0; }
+            .not-for-you h3 { font-size: 1.1rem; }
+            .not-for-you p { font-size: 0.88rem; }
+            .faq { padding: 2.5rem 1.25rem; }
+            .faq h2 { font-size: 1.35rem; margin-bottom: 1.75rem; }
+            .faq-item h3 { font-size: 0.95rem; }
+            .faq-item p { font-size: 0.88rem; }
+            .faq-item { margin-bottom: 1.25rem; }
+            .blog { padding: 3rem 1.25rem; }
+            .blog h2 { font-size: 1.35rem; margin-bottom: 1.75rem; }
+            .blog-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .blog-card { padding: 1.25rem; }
+            .final-cta { padding: 3rem 1.25rem; }
+            .final-cta h2 { font-size: 1.35rem; }
+            .final-cta p { font-size: 0.92rem; margin-bottom: 1.5rem; }
+            .nav-link { display: none; }
+            .nav-cta { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+            .nav-cta.show { opacity: 1; pointer-events: auto; }
+            nav { padding: 0.75rem 1rem; }
+            .logo { font-size: 1.2rem; }
+            .footer-top { flex-direction: column; align-items: center; text-align: center; }
+            .footer-about { max-width: 100%; }
+            .footer-links-col { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+            .footer-bottom { justify-content: center; flex-direction: column; align-items: center; text-align: center; }
+            .footer-about { font-size: 0.78rem; }
+            footer { padding: 1.5rem 1.25rem; }
+        }
+
+        @media (max-width: 480px) {
+            .compare-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            .compare-card {
+                width: 100%;
+                max-width: 240px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero entrance */
+        .hero-text { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .hero .phone-mockup { animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+
+        /* Phone float on hover */
+        .phone-mockup {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .phone-mockup:hover {
+            transform: translateY(-6px);
+        }
+        .phone-frame {
+            transition: box-shadow 0.4s ease;
+        }
+        .phone-mockup:hover .phone-frame {
+            box-shadow:
+                0 32px 72px rgba(0, 0, 0, 0.45),
+                0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Scroll-triggered reveals */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .stagger-1 { transition-delay: 0.05s; }
+        .stagger-2 { transition-delay: 0.12s; }
+        .stagger-3 { transition-delay: 0.19s; }
+        .stagger-4 { transition-delay: 0.26s; }
+
+        /* Card hover lifts */
+        .compare-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .compare-card:hover {
+            transform: translateY(-3px);
+        }
+        .compare-card.ours:hover {
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+        }
+        .price-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .price-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* CTA shimmer */
+        .cta-primary {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: translateX(-100%);
+            transition: none;
+        }
+        .cta-primary.shimmer::after {
+            animation: shimmer 0.8s ease-out;
+        }
+        @keyframes shimmer {
+            to { transform: translateX(100%); }
+        }
+
+        /* Reduce motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal, .reveal-left, .reveal-right, .reveal-scale {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .skip-link {
+          position: absolute;
+          top: -40px;
+          left: 0;
+          padding: 8px 16px;
+          background: #3B82F6;
+          color: #fff;
+          z-index: 9999;
+          font-size: 14px;
+          text-decoration: none;
+          border-radius: 0 0 4px 0;
+          transition: top 0.2s;
+        }
+        .skip-link:focus {
+          top: 0;
+        }
+
+        *:focus-visible {
+          outline: 2px solid #60A5FA;
+          outline-offset: 2px;
+        }
+
+        /* Coming soon badge */
+        .coming-soon-badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-left: 0.5rem;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link">Skip to main content</a>
+<!-- Nav -->
 <nav id="nav" aria-label="Main navigation">
     <div class="nav-inner">
-        <a href="#overview" class="logo"><span class="logo-mark"><svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="432" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/><circle cx="592" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/></svg></span>SteadyTrainer</a>
+        <a href="#overview" class="logo">
+            <span class="logo-mark"><svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="432" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/><circle cx="592" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/></svg></span>
+            SteadyTrainer
+        </a>
         <div class="nav-links">
             <a href="#features" class="nav-link">Features</a>
             <a href="#pricing" class="nav-link">Pricing</a>
             <a href="#faq" class="nav-link">FAQ</a>
             <a href="#blog" class="nav-link">Blog</a>
-            <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Coming Soon</button>
+            <button class="nav-cta" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+                Coming Soon
+            </button>
         </div>
     </div>
 </nav>
+
 <main id="main-content">
+
+<!-- Hero -->
 <section class="hero" id="overview">
     <div class="hero-text">
         <div class="hero-badge">iPhone app for solo trainers</div>
         <h1>Your clients don't need a <em>$99/month training platform.</em></h1>
         <p class="hero-sub">Built for independent trainers who don't need workout builders, video libraries, and enterprise features they'll never use. $9.99/month.</p>
         <div class="hero-cta-group" id="waitlist">
-            <a href="#" class="cta-primary" onclick="return false;" style="background:#3B82F6;">
+            <a href="#" class="cta-primary" onclick="return false;" style="background: #3B82F6;">
                 <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" style="width:18px;height:18px;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                 Coming Soon — Join the Waitlist
             </a>
@@ -254,62 +1303,186 @@
         </div>
     </div>
     <div class="phone-mockup phone-mockup-lg">
-        <div class="phone-frame"><div class="phone-screen">
-            <div class="mock-header"><div class="mock-header-label">SteadyTrainer</div><div class="mock-header-title">Dashboard</div></div>
-            <div class="mock-stats">
-                <div class="mock-stat"><div class="mock-stat-value green">$6,200</div><div class="mock-stat-label">Total Revenue</div></div>
-                <div class="mock-stat"><div class="mock-stat-value amber">$1,850</div><div class="mock-stat-label">Outstanding</div></div>
-                <div class="mock-stat"><div class="mock-stat-value">15</div><div class="mock-stat-label">Active Clients</div></div>
-                <div class="mock-stat"><div class="mock-stat-value">22</div><div class="mock-stat-label">Sessions This Month</div></div>
+        <div class="phone-frame">
+            <div class="phone-screen">
+                <div class="mock-header">
+                    <div class="mock-header-label">SteadyTrainer</div>
+                    <div class="mock-header-title">Dashboard</div>
+                </div>
+                <div class="mock-stats">
+                    <div class="mock-stat">
+                        <div class="mock-stat-value green">$6,200</div>
+                        <div class="mock-stat-label">Total Revenue</div>
+                    </div>
+                    <div class="mock-stat">
+                        <div class="mock-stat-value amber">$1,850</div>
+                        <div class="mock-stat-label">Outstanding</div>
+                    </div>
+                    <div class="mock-stat">
+                        <div class="mock-stat-value">15</div>
+                        <div class="mock-stat-label">Active Clients</div>
+                    </div>
+                    <div class="mock-stat">
+                        <div class="mock-stat-value">22</div>
+                        <div class="mock-stat-label">Sessions This Month</div>
+                    </div>
+                </div>
+                <div class="mock-section-title">Upcoming Sessions</div>
+                <div class="mock-appointment">
+                    <div class="mock-appt-dot"></div>
+                    <div class="mock-appt-info">
+                        <div class="mock-appt-name">Jake Torres</div>
+                        <div class="mock-appt-detail">Leg Day</div>
+                    </div>
+                    <div class="mock-appt-time">7:00 AM</div>
+                </div>
+                <div class="mock-appointment">
+                    <div class="mock-appt-dot" style="background: #FBBF24;"></div>
+                    <div class="mock-appt-info">
+                        <div class="mock-appt-name">Mia Chen</div>
+                        <div class="mock-appt-detail">HIIT Session</div>
+                    </div>
+                    <div class="mock-appt-time">9:30 AM</div>
+                </div>
+                <div class="mock-appointment">
+                    <div class="mock-appt-dot"></div>
+                    <div class="mock-appt-info">
+                        <div class="mock-appt-name">David Park</div>
+                        <div class="mock-appt-detail">Upper Body</div>
+                    </div>
+                    <div class="mock-appt-time">12:00 PM</div>
+                </div>
             </div>
-            <div class="mock-section-title">Upcoming Sessions</div>
-            <div class="mock-appointment"><div class="mock-appt-dot"></div><div class="mock-appt-info"><div class="mock-appt-name">Jake Torres</div><div class="mock-appt-detail">Leg Day</div></div><div class="mock-appt-time">7:00 AM</div></div>
-            <div class="mock-appointment"><div class="mock-appt-dot" style="background:#FBBF24;"></div><div class="mock-appt-info"><div class="mock-appt-name">Mia Chen</div><div class="mock-appt-detail">HIIT Session</div></div><div class="mock-appt-time">9:30 AM</div></div>
-            <div class="mock-appointment"><div class="mock-appt-dot"></div><div class="mock-appt-info"><div class="mock-appt-name">David Park</div><div class="mock-appt-detail">Upper Body</div></div><div class="mock-appt-time">12:00 PM</div></div>
-        </div></div>
+        </div>
     </div>
 </section>
-<div class="savings-banner reveal"><div class="savings-banner-inner"><p>Solo trainers pay an average of <strong>$1,020/year</strong> for client management software. With SteadyTrainer: <strong>$119.88/year.</strong></p><p class="savings-detail">Based on published pricing for Trainerize ($49/mo), My PT Hub ($59/mo), and TrueCoach ($99/mo) as of February 2026.</p></div></div>
+
+<!-- Savings Math Banner -->
+<div class="savings-banner reveal">
+    <div class="savings-banner-inner">
+        <p>Solo trainers pay an average of <strong>$1,020/year</strong> for client management software. With SteadyTrainer: <strong>$119.88/year.</strong></p>
+        <p class="savings-detail">Based on published pricing for Trainerize ($49/mo), My PT Hub ($59/mo), and TrueCoach ($99/mo) as of February 2026.</p>
+    </div>
+</div>
+
+<!-- Problem -->
 <section class="problem" id="pricing-comparison">
     <div class="problem-inner reveal">
         <h2>You're paying gym-chain prices for a solo operation.</h2>
-        <p>Trainerize and TrueCoach are excellent products — for large gyms and online coaching businesses with dozens of trainers. If that's not you, you're subsidizing workout builders, video libraries, and white-label features you'll never touch.</p>
+        <p>Trainerize and TrueCoach are excellent products — for large gyms and online coaching businesses with dozens of trainers. If that's not you, you're subsidizing workout builders, video libraries, and white-label features you'll never touch. Trainerize offers about 70 features. TrueCoach, about 60. A solo in-person trainer might use a third of them.</p>
         <div class="compare-row">
-            <div class="compare-card other reveal-scale stagger-1"><div class="comp-name">Trainerize</div><div class="comp-price">$49/mo</div><div class="comp-annual">$588/yr</div></div>
-            <div class="compare-card other reveal-scale stagger-2"><div class="comp-name">My PT Hub</div><div class="comp-price">$59/mo</div><div class="comp-annual">$708/yr</div></div>
-            <div class="compare-card other reveal-scale stagger-3"><div class="comp-name">TrueCoach</div><div class="comp-price">$99/mo</div><div class="comp-annual">$1,188/yr</div></div>
-            <div class="compare-card ours reveal-scale stagger-4"><div class="comp-name">SteadyTrainer</div><div class="comp-price">$9.99/mo</div><div class="comp-annual">$79.99/yr</div></div>
+            <div class="compare-card other reveal-scale stagger-1">
+                <div class="comp-name">Trainerize</div>
+                <div class="comp-price">$49/mo</div>
+                <div class="comp-annual">$588/yr</div>
+            </div>
+            <div class="compare-card other reveal-scale stagger-2">
+                <div class="comp-name">My PT Hub</div>
+                <div class="comp-price">$59/mo</div>
+                <div class="comp-annual">$708/yr</div>
+            </div>
+            <div class="compare-card other reveal-scale stagger-3">
+                <div class="comp-name">TrueCoach</div>
+                <div class="comp-price">$99/mo</div>
+                <div class="comp-annual">$1,188/yr</div>
+            </div>
+            <div class="compare-card ours reveal-scale stagger-4">
+                <div class="comp-name">SteadyTrainer</div>
+                <div class="comp-price">$9.99/mo</div>
+                <div class="comp-annual">$79.99/yr</div>
+            </div>
         </div>
         <p class="savings-math reveal">That's <strong>$468–$1,068 back in your pocket</strong> every year.</p>
-        <p class="reveal" style="font-size:0.78rem;color:var(--text-light);margin-top:0.75rem;">Competitor pricing as of February 2026. SteadyTrainer is not affiliated with Trainerize, My PT Hub, or TrueCoach.</p>
+        <p class="reveal" style="font-size:0.78rem;color:var(--text-light);margin-top:0.75rem;">Competitor pricing as of February 2026. Prices subject to change. SteadyTrainer is not affiliated with or endorsed by Trainerize, My PT Hub, or TrueCoach.</p>
     </div>
 </section>
+
+<!-- Features -->
 <section class="features" id="features">
-    <div class="features-header reveal"><h2>Six things your training business actually needs.</h2><p>Nothing else. Nothing you'll pay for and never open.</p></div>
+    <div class="features-header reveal">
+        <h2>Six things your training business actually needs.</h2>
+        <p>Nothing else. Nothing you'll pay for and never open.</p>
+    </div>
+
     <div class="features-grid">
-        <div class="feature-card reveal stagger-1"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3>Client Management</h3><p>Every client, one tap away. Contact info, goals, session history, notes, and preferences — organized the way trainers think.</p></div>
-        <div class="feature-card reveal stagger-2"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h3>Session Scheduling</h3><p>Your week, at a glance. Schedule sessions, set recurring appointments, and never double-book.</p></div>
-        <div class="feature-card reveal stagger-1"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg></div><h3>Session Notes &amp; Progress</h3><p>Log what matters. Track weights, sets, reps, measurements, and trainer notes — all tied to the client's history.</p></div>
-        <div class="feature-card reveal stagger-2"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Simple Invoicing</h3><p>Get paid without the headache. Generate invoices, track payments, and see who owes you.</p></div>
-        <div class="feature-card reveal stagger-1"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div><h3>Package Tracking</h3><p>Sell sessions in packages. Track how many sessions each client has left and when it's time to renew.</p></div>
-        <div class="feature-card reveal stagger-2"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div><h3>Smart Reminders</h3><p>Automated nudges. Session reminders for clients, follow-ups for you. Reduce no-shows without lifting a finger.</p></div>
+        <!-- Client Management -->
+        <div class="feature-card reveal stagger-1">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Client Management</h3>
+            <p>Every client, one tap away. Contact info, goals, session history, notes, and preferences — organized the way trainers think.</p>
+        </div>
+
+        <!-- Session Scheduling -->
+        <div class="feature-card reveal stagger-2">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>Session Scheduling</h3>
+            <p>Your week, at a glance. Schedule sessions, set recurring appointments, track cancellations, and never double-book.</p>
+        </div>
+
+        <!-- Session Notes & Progress -->
+        <div class="feature-card reveal stagger-1">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+            </div>
+            <h3>Session Notes &amp; Progress</h3>
+            <p>Log what matters. Track weights, sets, reps, measurements, and trainer notes — all tied to the client's history.</p>
+        </div>
+
+        <!-- Simple Invoicing -->
+        <div class="feature-card reveal stagger-2">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Simple Invoicing</h3>
+            <p>Get paid without the headache. Generate invoices, track payments, and see who owes you — no accounting degree needed.</p>
+        </div>
+
+        <!-- Package Tracking -->
+        <div class="feature-card reveal stagger-1">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3>Package Tracking</h3>
+            <p>Sell sessions in packages. Track how many sessions each client has left, when packages expire, and when it's time to renew.</p>
+        </div>
+
+        <!-- Smart Reminders -->
+        <div class="feature-card reveal stagger-2">
+            <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <h3>Smart Reminders</h3>
+            <p>Automated nudges. Session reminders for clients, follow-ups for you. Reduce no-shows without lifting a finger.</p>
+        </div>
     </div>
 </section>
+
+<!-- Privacy -->
 <section class="privacy-section" id="privacy">
     <div class="privacy-inner reveal">
-        <div class="privacy-icon"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="privacy-icon">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
         <h2>Your clients' data never leaves your phone.</h2>
-        <p>No cloud. No servers. No accounts. Everything you enter stays on your iPhone — encrypted at rest by iOS, protected by your passcode and Face ID.</p>
-        <p style="margin-top:0.75rem;">Your clients trust you with their health information. SteadyTrainer is built to honor that.</p>
+        <p>No cloud. No servers. No accounts. Everything you enter stays on your iPhone — encrypted at rest by iOS, protected by your passcode and Face ID. We have no servers to breach. We can't access your notes. We can't sell your data. We literally don't have it.</p>
+        <p style="margin-top: 0.75rem;">Your clients trust you with their health information. SteadyTrainer is built to honor that.</p>
     </div>
 </section>
+
+<!-- Pricing -->
 <section class="pricing" id="pricing">
     <div class="pricing-inner">
         <h2 class="reveal">Try it free. Keep it for $9.99/month.</h2>
         <p class="pricing-sub reveal">The free plan isn't a demo — it's the full app for up to 3 clients. Pro unlocks unlimited clients, data export, and backups.</p>
         <div class="pricing-cards">
             <div class="price-card reveal-scale stagger-1">
-                <h3>Free</h3><div class="price-amount">$0</div><span class="price-period">Forever</span>
+                <h3>Free</h3>
+                <div class="price-amount">$0</div>
+                <span class="price-period">Forever</span>
                 <ul class="price-features">
                     <li><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Up to 3 active clients</li>
                     <li><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Session scheduling &amp; notes</li>
@@ -321,7 +1494,9 @@
             </div>
             <div class="price-card featured reveal-scale stagger-2">
                 <div class="price-badge">Best value</div>
-                <h3>Pro</h3><div class="price-amount">$9.99</div><span class="price-period">per month · or $79.99/year (save 33%)</span>
+                <h3>Pro</h3>
+                <div class="price-amount">$9.99</div>
+                <span class="price-period">per month · or $79.99/year (save 33%)</span>
                 <ul class="price-features">
                     <li><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Everything in Free</li>
                     <li><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients</li>
@@ -333,50 +1508,168 @@
         </div>
     </div>
 </section>
+
+<!-- Comparison Table -->
 <section class="comparison reveal" id="comparison">
     <div class="comparison-inner">
         <h2>How SteadyTrainer compares.</h2>
         <div class="comparison-table-wrap">
             <table class="comparison-table">
-                <thead><tr><th>Feature</th><th class="highlight">SteadyTrainer</th><th>Trainerize</th><th>My PT Hub</th><th>TrueCoach</th></tr></thead>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th class="highlight">SteadyTrainer</th>
+                        <th>Trainerize</th>
+                        <th>My PT Hub</th>
+                        <th>TrueCoach</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr><td>Client profiles</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Session scheduling</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Session notes</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Invoicing</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Package tracking</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Reminders</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Workout builder</td><td class="highlight"><span class="x-icon">&#10007;</span><span class="by-design">By design</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>Video library</td><td class="highlight"><span class="x-icon">&#10007;</span><span class="by-design">By design</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td><td><span class="check-icon">&#10003;</span></td></tr>
-                    <tr><td>On-device storage</td><td class="highlight"><span class="check-icon">&#10003;</span></td><td><span class="x-icon">&#10007;</span></td><td><span class="x-icon">&#10007;</span></td><td><span class="x-icon">&#10007;</span></td></tr>
-                    <tr><td>Price</td><td class="highlight" style="font-weight:700;color:#60A5FA;">$9.99/mo</td><td>$49/mo</td><td>$59/mo</td><td>$99/mo</td></tr>
+                    <tr>
+                        <td>Client profiles</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Session scheduling</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Session notes</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Invoicing</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Package tracking</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Reminders</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Workout builder</td>
+                        <td class="highlight"><span class="x-icon">&#10007;</span><span class="by-design">By design</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Video library</td>
+                        <td class="highlight"><span class="x-icon">&#10007;</span><span class="by-design">By design</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                        <td><span class="check-icon">&#10003;</span></td>
+                    </tr>
+                    <tr>
+                        <td>On-device storage</td>
+                        <td class="highlight"><span class="check-icon">&#10003;</span></td>
+                        <td><span class="x-icon">&#10007;</span></td>
+                        <td><span class="x-icon">&#10007;</span></td>
+                        <td><span class="x-icon">&#10007;</span></td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td class="highlight" style="font-weight:700;color:#60A5FA;">$9.99/mo</td>
+                        <td>$49/mo</td>
+                        <td>$59/mo</td>
+                        <td>$99/mo</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </section>
-<aside class="not-for-you reveal"><h3>SteadyTrainer is not for every trainer.</h3><p>If you need workout programming with video delivery, online coaching tools, a client-facing app, or multi-trainer management, SteadyTrainer isn't the right tool. Trainerize and TrueCoach are excellent for those use cases.</p></aside>
+
+<!-- Not for you -->
+<aside class="not-for-you reveal">
+    <h3>SteadyTrainer is not for every trainer.</h3>
+    <p>If you need workout programming with video delivery, online coaching tools, a client-facing app, or multi-trainer management, SteadyTrainer isn't the right tool. Trainerize and TrueCoach are excellent for those use cases. We mean it — use them if you need them. SteadyTrainer is built for solo in-person trainers who want simple client management, session tracking, packages, and invoicing — and nothing more.</p>
+</aside>
+
+<!-- FAQ -->
 <section class="faq" id="faq">
     <div class="faq-inner">
         <h2 class="reveal">Frequently asked questions</h2>
-        <div class="faq-item reveal"><h3>Is SteadyTrainer a workout programming app?</h3><p>No. SteadyTrainer is a client management tool, not a workout builder. If you need a simple way to manage clients, sessions, packages, and payments — that's what SteadyTrainer does.</p></div>
-        <div class="faq-item reveal"><h3>What about online coaching?</h3><p>SteadyTrainer is built for trainers who see clients in person. If you're a solo trainer juggling 10–30 in-person clients, it's exactly for you.</p></div>
-        <div class="faq-item reveal"><h3>How is my data stored?</h3><p>All your data lives on your iPhone. We don't store it on servers, we don't have access to it, and we never sell it.</p></div>
-        <div class="faq-item reveal"><h3>Can I try it free?</h3><p>Yes. SteadyTrainer is free for up to 3 clients with all features included. No credit card, no account, no trial that expires.</p></div>
-        <div class="faq-item reveal"><h3>$9.99/month — what's the catch?</h3><p>No catch. We keep costs low by keeping the product focused. The savings get passed to you.</p></div>
+
+        <div class="faq-item reveal">
+            <h3>Is SteadyTrainer a workout programming app?</h3>
+            <p>No. SteadyTrainer is a client management tool, not a workout builder. If you program workouts in a notebook, spreadsheet, or your head, and you need a simple way to manage clients, sessions, packages, and payments — that's what SteadyTrainer does.</p>
+        </div>
+
+        <div class="faq-item reveal">
+            <h3>What about online coaching?</h3>
+            <p>SteadyTrainer is built for trainers who see clients in person. If you run an online coaching business with hundreds of clients and need video delivery, SteadyTrainer isn't for you. If you're a solo trainer juggling 10–30 in-person clients, it's exactly for you.</p>
+        </div>
+
+        <div class="faq-item reveal">
+            <h3>How is my data stored?</h3>
+            <p>All your data lives on your iPhone. We don't store it on servers, we don't have access to it, and we never sell it. Your client information is yours.</p>
+        </div>
+
+        <div class="faq-item reveal">
+            <h3>Can I try it free?</h3>
+            <p>Yes. SteadyTrainer is free for up to 3 clients with all features included. No credit card, no account, no trial that expires.</p>
+        </div>
+
+        <div class="faq-item reveal">
+            <h3>What if I have more than 30 clients?</h3>
+            <p>SteadyTrainer is designed for solo trainers with up to about 30 active clients. If you're managing a large roster or a team of trainers, a platform like Trainerize or TrueCoach may be a better fit.</p>
+        </div>
+
+        <div class="faq-item reveal">
+            <h3>$9.99/month — what's the catch?</h3>
+            <p>No catch. We keep costs low by keeping the product focused. No bloated feature set to maintain, no server infrastructure to run, no enterprise sales team to pay for. The savings get passed to you.</p>
+        </div>
     </div>
 </section>
+
+<!-- Blog -->
 <section class="blog" id="blog">
     <div class="blog-inner">
         <h2 class="reveal">From the blog</h2>
         <div class="blog-grid">
-            <div class="blog-card reveal stagger-1"><div class="blog-card-date">February 24, 2026</div><h3>Why Solo Trainers Don't Need Trainerize</h3></div>
-            <div class="blog-card reveal stagger-2"><div class="blog-card-date">February 18, 2026</div><h3>The Real Cost of Training Software in 2026</h3></div>
-            <div class="blog-card reveal stagger-3"><div class="blog-card-date">February 10, 2026</div><h3>What Independent Trainers Actually Need from Their Tools</h3></div>
-            <div class="blog-card reveal stagger-4"><div class="blog-card-date">February 3, 2026</div><h3>Announcing SteadyTrainer</h3></div>
+            <div class="blog-card reveal stagger-1">
+                <div class="blog-card-date">February 24, 2026</div>
+                <h3>Why Solo Trainers Don't Need Trainerize</h3>
+            </div>
+            <div class="blog-card reveal stagger-2">
+                <div class="blog-card-date">February 18, 2026</div>
+                <h3>The Real Cost of Training Software in 2026</h3>
+            </div>
+            <div class="blog-card reveal stagger-3">
+                <div class="blog-card-date">February 10, 2026</div>
+                <h3>What Independent Trainers Actually Need from Their Tools</h3>
+            </div>
+            <div class="blog-card reveal stagger-4">
+                <div class="blog-card-date">February 3, 2026</div>
+                <h3>Announcing SteadyTrainer</h3>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Final CTA -->
 <section class="final-cta" id="download">
     <h2 class="reveal">Coming soon. Free for up to 3 clients.</h2>
     <p class="reveal">If SteadyTrainer saves you $40/month versus what you're paying now, it'll feel like getting paid to switch.</p>
@@ -385,35 +1678,90 @@
         Join the Waitlist
     </button>
 </section>
+
 </main>
+
+<!-- Footer -->
 <footer>
     <div class="footer-inner">
         <div class="footer-top">
             <div>
-                <a href="#overview" class="footer-brand"><span class="logo-mark" style="width:22px;height:22px;border-radius:6px;"><svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;"><circle cx="432" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/><circle cx="592" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/></svg></span>SteadyTrainer</a>
-                <p class="footer-about">SteadyTrainer is a client management app for independent personal trainers, developed by BrookFord LLC. $9.99/month — a simple, affordable alternative to Trainerize, My PT Hub, and TrueCoach. All data stored locally on your iPhone.</p>
+                <a href="#overview" class="footer-brand">
+                    <span class="logo-mark" style="width:22px;height:22px;border-radius:6px;"><svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;"><circle cx="432" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/><circle cx="592" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/></svg></span>
+                    SteadyTrainer
+                </a>
+                <p class="footer-about">SteadyTrainer is a client management app for independent personal trainers and fitness coaches, developed by BrookFord LLC. It offers client tracking, session scheduling, session notes, package management, and invoicing for $9.99/month — a simple, affordable alternative to Trainerize, My PT Hub, and TrueCoach. All data is stored locally on your iPhone.</p>
             </div>
             <div class="footer-links-col">
-                <a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#blog">Blog</a>
-                <a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#blog">Blog</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
                 <a href="mailto:support@steadytrainer.app">support@steadytrainer.app</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="footer-copy"><span class="logo-mark" style="width:20px;height:20px;border-radius:5px;display:inline-flex;vertical-align:middle;margin-right:0.4rem;"><svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:13px;height:13px;"><circle cx="432" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/><circle cx="592" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/></svg></span>&copy; 2026 <a href="https://brookfordllc.com" style="color:var(--text-light);text-decoration:none;" target="_blank" rel="noopener noreferrer">BrookFord LLC</a>. All rights reserved.</p>
+            <p class="footer-copy">
+                <span class="logo-mark" style="width:20px;height:20px;border-radius:5px;display:inline-flex;vertical-align:middle;margin-right:0.4rem;"><svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:13px;height:13px;"><circle cx="432" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/><circle cx="592" cy="512" r="175" stroke="#FAFAF7" stroke-width="38" opacity="0.85"/></svg></span>
+                &copy; 2026 <a href="https://brookfordllc.com" style="color:var(--text-light);text-decoration:none;" target="_blank" rel="noopener noreferrer">BrookFord LLC</a>. All rights reserved.
+            </p>
             <p class="footer-family">Part of the <a href="https://crmbrand-site.vercel.app" target="_blank" rel="noopener noreferrer">SteadyLayer</a> family.</p>
         </div>
     </div>
 </footer>
+
 <script>
+    // Nav scroll effect
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
-    const revealElements = document.querySelectorAll('.reveal, .reveal-scale');
-    const revealObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } }); }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Scroll-triggered reveals
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+    });
+
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // CTA shimmer on scroll into view
+    const ctaButtons = document.querySelectorAll('.final-cta .cta-primary');
+    const shimmerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('shimmer');
+                shimmerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    ctaButtons.forEach(btn => shimmerObserver.observe(btn));
+
+    // Show nav CTA on mobile once hero CTA scrolls out of view
     const heroCta = document.querySelector('.hero .cta-primary');
     const navCta = document.querySelector('.nav-cta');
-    if (heroCta && navCta) { const obs = new IntersectionObserver((entries) => { entries.forEach(e => { navCta.classList.toggle('show', !e.isIntersecting); }); }, { threshold: 0 }); obs.observe(heroCta); }
+    if (heroCta && navCta) {
+        const navCtaObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                navCta.classList.toggle('show', !entry.isIntersecting);
+            });
+        }, { threshold: 0 });
+        navCtaObserver.observe(heroCta);
+    }
 </script>
+
 </body>
 </html>
